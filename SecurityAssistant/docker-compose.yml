@@ -1,0 +1,32 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    restart: unless-stopped
+
+  app:
+    build:
+      dockerfile: Dockerfile
+    container_name: sec-vision-app
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+    depends_on:
+      - ollama
+    environment:
+      # Point LangChain's Ollama client to the ollama container via network
+      - OLLAMA_BASE_URL=http://ollama:11434
+    networks:
+      - sec-net
+
+networks:
+  sec-net:
+    driver: bridge
+
+volumes:
+  ollama-data:
