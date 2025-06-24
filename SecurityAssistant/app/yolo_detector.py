@@ -3,11 +3,12 @@ import numpy as np
 import cv2
 from PIL import Image
 
-model = YOLO("yolov8n.pt")  # Make sure this model is downloaded or available
+model = YOLO("yolov8l.pt")  # Make sure this model is downloaded or available
+
 
 def detect_objects(image: Image.Image):
     img_array = np.array(image)
-    results = model(img_array)
+    results = model(img_array, conf=0.25)
 
     detections = results[0].boxes.data.cpu().numpy()
     labels = []

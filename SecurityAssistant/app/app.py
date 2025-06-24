@@ -10,13 +10,13 @@ uploaded_file = st.file_uploader("📷 Upload an image for security analysis", t
 
 if uploaded_file is not None:
     image = load_image(uploaded_file.read())
-    st.image(image, caption="Uploaded Image", use_column_width=True)
+    st.image(image, caption="Uploaded Image", use_container_width=True)
 
     with st.spinner("🔍 Detecting objects..."):
         labels, annotated_image = detect_objects(image)
 
     st.success("✅ Objects Detected")
-    st.image(annotated_image, caption="Detected Objects", use_column_width=True)
+    st.image(annotated_image, caption="Detected Objects", use_container_width=True)
     st.write("### 🏷️ Detected Labels")
     st.write(labels)
 
