@@ -9,8 +9,17 @@ services:
     restart: unless-stopped
     networks:
       - sec-net
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    runtime: nvidia  # 👈 important
 
   app:
+    shm_size: '8g'
     build:
       dockerfile: Dockerfile
     container_name: sec-vision-app
@@ -21,10 +30,18 @@ services:
     depends_on:
       - ollama
     environment:
-      # Point LangChain's Ollama client to the ollama container via network
       - OLLAMA_BASE_URL=http://ollama:11434
+      - NVIDIA_VISIBLE_DEVICES=all
     networks:
       - sec-net
+    # Optional GPU access for app container too
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    runtime: nvidia
+      
 
 networks:
   sec-net:

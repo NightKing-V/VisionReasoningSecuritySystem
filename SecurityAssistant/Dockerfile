@@ -15,6 +15,8 @@ RUN apt-get update && apt-get install -y \
 # Copy your app source code
 COPY requirements.txt .
 # Upgrade pip and install Python dependencies
+RUN pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
