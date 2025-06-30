@@ -1,0 +1,53 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    restart: unless-stopped
+    networks:
+      - sec-net
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    runtime: nvidia  # 👈 important
+
+  app:
+    shm_size: '8g'
+    build:
+      dockerfile: Dockerfile
+    container_name: sec-vision-app
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+    depends_on:
+      - ollama
+    environment:
+      - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
+      - CHAT_ID=${CHAT_ID}
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - NVIDIA_VISIBLE_DEVICES=all
+    networks:
+      - sec-net
+    # Optional GPU access for app container too
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    runtime: nvidia
+      
+
+networks:
+  sec-net:
+    driver: bridge
+
+volumes:
+  ollama-data:
