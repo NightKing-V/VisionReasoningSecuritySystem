@@ -30,6 +30,8 @@ services:
     depends_on:
       - ollama
     environment:
+      - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
+      - CHAT_ID=${CHAT_ID}
       - OLLAMA_BASE_URL=http://ollama:11434
       - NVIDIA_VISIBLE_DEVICES=all
     networks:

@@ -1,1 +1,10 @@
+<<<<<<< HEAD
+SecurityAssistant/app/Model/Dataset1
+SecurityAssistant/app/Model/Dataset2
+SecurityAssistant/app/Model/Dataset3
+/SecurityAssistant/app/Model/runs
+
+.env
+=======
 SecurityAssistant/app/Model/Dataset
+>>>>>>> parent of b025a24 (Telebot & Realtime Features)
