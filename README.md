@@ -21,4 +21,23 @@
 | ⏱️ Alert Control    | Python `time.time()`                               | Prevents alert flooding using cooldown timer                   |
 | 🔗 LLM Reasoning    | LangChain                                          | Manages LLM pipeline and prompt engineering                    |
 | 🤖 Prompting Agent  | Open-source LLM (e.g. Mistral via Ollama)          | Generates human-readable descriptions of detected scenes       |
+---
+## 📊 Model Performance Summary
 
+| Class          | Images | Instances | Precision | Recall | mAP@0.5 | mAP@0.5:0.95 |
+|----------------|--------|-----------|-----------|--------|--------|--------------|
+| **all**        | 327    | 1042      | 0.645     | 0.496  | 0.528  | 0.293        |
+| Armed-Person   | 260    | 376       | 0.852     | 0.522  | 0.720  | 0.436        |
+| Rifle          | 274    | 405       | 0.855     | 0.306  | 0.484  | 0.220        |
+| Person         | 143    | 257       | 0.575     | 0.405  | 0.468  | 0.282        |
+| Knife          | 4      | 4         | 0.299     | 0.750  | 0.439  | 0.234        |
+
+**⚡ Inference Speed**  
+- Preprocess: `0.2ms`  
+- Inference: `2.0ms`  
+- Loss: `0.0ms`  
+- Postprocess: `1.7ms`
+
+---
+### 🔗 Transfer Learned Model
+**Download Model**: [MEGA](https://mega.nz/folder/Y0dVELDa#faVttNDpCBJEr3sAcj7EGw/folder/Z8k3QKSL)
