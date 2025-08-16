@@ -5,3 +5,5 @@ SecurityAssistant/app/Model/Merged_Dataset
 SecurityAssistant/app/Model/runs
 
 .env
+
+.pt
