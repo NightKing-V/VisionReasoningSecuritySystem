@@ -20,6 +20,7 @@ services:
 
   app:
     shm_size: '8g'
+    image: securityassistant-app
     build:
       dockerfile: Dockerfile
     container_name: sec-vision-app
