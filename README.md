@@ -37,3 +37,7 @@
 - Inference: `2.0ms`  
 - Loss: `0.0ms`  
 - Postprocess: `1.7ms`
+
+---
+### 🔗 Transfer Learned Model
+**Download Model**: [MEGA](https://mega.nz/folder/Y0dVELDa#faVttNDpCBJEr3sAcj7EGw/folder/Z8k3QKSL)
