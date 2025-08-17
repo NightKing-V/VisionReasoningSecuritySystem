@@ -8,7 +8,7 @@ from llm_agent import analyze_scene
 model_path = "app/best.pt"
 
 class ThreatDetectionModel:
-    def __init__(self, model_path=model_path, target_classes=None, alert_cooldown=10, detection_window=50, min_detections=20):
+    def __init__(self, model_path=model_path, target_classes=None, alert_cooldown=20, detection_window=50, min_detections=60):
         self.model = YOLO(model_path)
         self.target_classes = target_classes or ['Armed-Person', 'Rifle', 'knife']
         self.last_alert_time = 0
