@@ -13,8 +13,7 @@ You are an AI security assistant.
 The following objects were detected in a surveillance frame at {timestamp}: {object_list}.
 
 1. Describe the scene briefly and clearly.
-2. Determine if the scene is suspicious (Yes/No) and explain your reasoning.
-3. If suspicious, suggest an appropriate security action in one sentence.
+2. Determine if the scene is suspicious (Yes/No) no need explanation.
 """
 )
 

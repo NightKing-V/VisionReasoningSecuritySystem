@@ -8,7 +8,7 @@ from model import ThreatDetectionModel
 st.set_page_config(page_title="Surveillance System", layout="centered")
 
 # Initialize model
-detector = ThreatDetectionModel(target_classes=['Armed-Person', 'Rifle', 'Person', 'knife'])
+detector = ThreatDetectionModel(target_classes=['Armed-Person', 'Rifle', 'knife'])
 st.title("🔫 Real-time Surveilance System")
 send_telegram_status("Threat Detection App Started")
 
@@ -65,4 +65,4 @@ while st.session_state.running and st.session_state.cap:
     if detections:
         detected_classes.markdown(f"⚠️ Detected: **{', '.join(detections)}**")
 
-    time.sleep(0.03)  # ~30 FPS
+    time.sleep(0.3)  # ~30 FPS
